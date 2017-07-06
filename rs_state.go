@@ -28,13 +28,14 @@ func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
 		Timeout: 5 * time.Second,
 	}
 	uri := fmt.Sprintf("mongodb://%s/connectTimeoutMS=%d&ssl=true&connect=direct", addr, 5 * 1000 * time.Second)
-	return nil, fmt.Errorf(uri)
-//	info := &mgo.Dial(
+//	return nil, fmt.Errorf(uri)
 
-	session, err := mgo.DialWithInfo(info)
+//	session, err := mgo.DialWithInfo(info)
+	session, err := mgo.Dial(uri)
 	if err != nil {
 		return nil, err
 	}
+
 	session.SetMode(mgo.Monotonic, true)
 	session.SetSyncTimeout(5 * time.Second)
 	session.SetSocketTimeout(5 * time.Second)
