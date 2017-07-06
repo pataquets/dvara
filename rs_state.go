@@ -27,10 +27,10 @@ func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
 		Direct:  true,
 		Timeout: 5 * time.Second,
 	}
-	fmt.Sprintf("addr: %T %v", addr, addr)
-	return nil, fmt.Errorf("addr[0]: %T %s", addr[0], addr[0])
+//	fmt.Sprintf("addr: %T %v", addr, addr)
+//	return nil, fmt.Errorf("addr[0]: %T %s", addr[0], addr[0])
 	var uri string
-	uri = "mongodb://" + "?connect=direct&ssl=true"
+	uri = "mongodb://" + addr + "?connect=direct&ssl=true"
 //fmt.Sprintf("mongodb://%s/connectTimeoutMS=%d&ssl=true&connect=direct", addr, 5 * 1000 * time.Second)
 	return nil, fmt.Errorf(uri)
 
