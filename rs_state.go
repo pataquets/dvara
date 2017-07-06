@@ -27,8 +27,8 @@ func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
 		Direct:  true,
 		Timeout: 5 * time.Second,
 	}*/
+	return nil, fmt.Sprintf("Addr: %T %s", addr,  addr)
 	uri := fmt.Sprintf("mongodb://%s/connectTimeoutMS=%d&ssl=true&connect=direct", addr, 5 * 1000 * time.Second)
-	c.Log.Errorf("Using URI: %s", uri)
 //	return nil, fmt.Errorf(uri)
 
 //	session, err := mgo.DialWithInfo(info)
