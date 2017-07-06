@@ -32,7 +32,7 @@ func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
 //	return nil, fmt.Errorf(uri)
 
 	session, err := mgo.DialWithInfo(info)
-	session, err := mgo.Dial(uri)
+//	session, err := mgo.Dial(uri)
 	if err != nil {
 		return nil, err
 	}
