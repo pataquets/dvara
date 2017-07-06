@@ -22,11 +22,11 @@ type ReplicaSetState struct {
 
 // NewReplicaSetState creates a new ReplicaSetState using the given address.
 func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
-	info := &mgo.DialInfo{
+/*	info := &mgo.DialInfo{
 		Addrs:   []string{addr},
 		Direct:  true,
 		Timeout: 5 * time.Second,
-	}
+	}*/
 	var uri string
 	uri = "mongodb://" + addr + "?connect=direct&ssl=true"
 //fmt.Sprintf("mongodb://%s/connectTimeoutMS=%d&ssl=true&connect=direct", addr, 5 * 1000 * time.Second)
