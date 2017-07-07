@@ -24,15 +24,15 @@ type ReplicaSetState struct {
 
 // NewReplicaSetState creates a new ReplicaSetState using the given address.
 func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
-	tlsConfig := tls.Config{
+/*	tlsConfig := tls.Config{
 		ServerName:	addr,
-	}
+	}*/
 	info := &mgo.DialInfo{
 		Addrs:      []string{addr},
 		Direct:     true,
 		Timeout:    5 * time.Second,
 		DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
-			return tls.Dial("tcp", addr.String(), &tlsConfig)
+			return tls.Dial("tcp", addr.String(), &tls.Config{})
 		},
 	}
 //	var uri string
