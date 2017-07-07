@@ -35,10 +35,12 @@ func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
 		Addrs:      []string{addr},
 		Direct:     true,
 		Timeout:    5 * time.Second,
-		DialServer: func(addr *mgo.ServerAddr) (net.Conn, error) {
-			return tls.Dial("tcp", addr.String(), &tls.Config{})
-		},
 	}
+	info.DialServer = func(addr *mgo.ServerAddr) (net.Conn, error) {
+		return tls.Dial("tcp", addr.String(), &tls.Config{})
+//		return tls.Dial("tcp", addr, &tls.Config{})
+	}
+
 //	var uri string
 //	uri = "mongodb://" + addr + "?connect=direct&ssl=true"
 //fmt.Sprintf("mongodb://%s/connectTimeoutMS=%d&ssl=true&connect=direct", addr, 5 * 1000 * time.Second)
