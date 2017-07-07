@@ -25,12 +25,12 @@ type ReplicaSetState struct {
 // NewReplicaSetState creates a new ReplicaSetState using the given address.
 func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
 	tlsConfig := tls.Config{
-		InsecureSkipVerify: true,
+//		InsecureSkipVerify: true,
 	}
-	_, err := tls.Dial("tcp", addr, &tlsConfig)
-	if err != nil {
-		return nil, err
-	}
+//	_, err := tls.Dial("tcp", addr, &tlsConfig)
+//	if err != nil {
+//		return nil, err
+//	}
 	info := &mgo.DialInfo{
 		Addrs:      []string{addr},
 		Direct:     true,
