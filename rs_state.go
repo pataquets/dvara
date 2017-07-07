@@ -27,6 +27,10 @@ func NewReplicaSetState(addr string) (*ReplicaSetState, error) {
 /*	tlsConfig := tls.Config{
 		ServerName:	addr,
 	}*/
+	_, err := tls.Dial("tcp", addr, &tls.Config{})
+	if err != nil {
+		return nil, err
+	}
 	info := &mgo.DialInfo{
 		Addrs:      []string{addr},
 		Direct:     true,
